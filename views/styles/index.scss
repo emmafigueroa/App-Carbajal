@@ -1,0 +1,347 @@
+$white-primary: #f7f7f7;
+$white-secundary: #ffffff;
+$white-terciary: #f1f1f1;
+
+$gray: #cfcfcf;
+$gray-hover: #b2b2b2;
+
+$blue-light: #acc1ff;
+$blue: #5884ff;
+$blue-hover: #4a7aff;
+
+$black-primary: #232323;
+$black-secundary: #404040;
+$black-terciary: #8c8c8c;
+
+$red: #ff4646;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  height: 100vh;
+  max-height: 100vh;
+  background: $white-primary;
+
+  .container {
+    width: calc(340px + 80px);
+    max-width: calc(340px + 80px);
+
+    background: $white-secundary;
+    border-radius: 8px;
+    border: 1px solid $gray;
+
+    header {
+      position: relative;
+
+      display: grid;
+
+      background: $blue;
+      border-radius: 8px 8px 0 0;
+
+      height: 80px;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: -17px;
+        width: 100px;
+        max-width: 100px;
+
+        transform: rotate(45deg);
+        opacity: 0.75;
+      }
+
+      h1 {
+        display: flex;
+        align-items: center;
+
+        font-size: 28pt;
+        margin-left: 100px;
+
+        color: $white-secundary;
+        opacity: 0.75;
+      }
+    }
+
+    section {
+      padding: 40px;
+      form {
+        display: grid;
+        grid-template-columns: 340px;
+
+        h1 {
+          font-size: 20pt;
+
+          margin-bottom: 22px;
+          color: $black-primary;
+
+          &.compressed {
+            width: 200px;
+          }
+        }
+
+        p {
+          font-size: 10pt;
+          font-weight: 500;
+
+          width: 320px;
+
+          margin-bottom: 10px;
+          color: $black-secundary;
+        }
+
+        label {
+          font-size: 12pt;
+          font-weight: 500;
+
+          margin-bottom: 6px;
+          color: $black-secundary;
+
+          a {
+            color: $blue;
+
+            margin-left: calc(100% - 196px);
+            text-decoration: none;
+
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              text-decoration: underline;
+              color: $blue-hover;
+              transition: all 0.5s ease-in-out;
+            }
+
+            &:focus {
+              outline: none;
+
+              text-decoration: underline;
+              color: $blue-hover;
+            }
+          }
+        }
+
+        .component-email,
+        .component-password,
+        .component-code,
+        .component-user {
+          position: relative;
+        }
+
+        input {
+          width: 300px;
+          height: 40px;
+          max-height: 40px;
+
+          background: $white-primary;
+          border-radius: 8px;
+          border: 1px solid $gray;
+
+          margin-bottom: 20px;
+          padding-left: 38px;
+
+          font-size: 10pt;
+          font-weight: 400;
+          color: $black-terciary;
+
+          &::placeholder {
+            color: $gray;
+          }
+
+          &:focus {
+            outline: $blue solid 1px;
+            outline-offset: 3px;
+          }
+        }
+
+        i {
+          position: absolute;
+          color: $gray;
+          height: 42px;
+
+          &.fa-envelope,
+          &.fa-lock,
+          &.fa-eye,
+          &.fa-eye-slash,
+          &.fa-key,
+          &.fa-user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          &.fa-envelope,
+          &.fa-lock,
+          &.fa-key,
+          &.fa-user {
+            top: 0;
+            left: 12px;
+          }
+
+          &.fa-eye,
+          &.fa-eye-slash {
+            top: 0;
+            right: 12px;
+
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              color: $gray-hover;
+
+              transition: all 0.5s ease-in-out;
+            }
+          }
+        }
+
+        .cautionEmail,
+        .cautionPassword,
+        .cautionCode,
+        .cautionUser {
+          p {
+            font-size: 10pt;
+
+            color: $red;
+          }
+          transform: translateY(-17px);
+        }
+
+        .component-buttons {
+          display: grid;
+          grid-template-columns: auto auto;
+          gap: 7.5px;
+
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 48px;
+            max-height: 48px;
+
+            background: $white-primary;
+            border-radius: 8px;
+            border: 1px solid $gray;
+
+            color: $blue-hover;
+            text-decoration: none;
+
+            font-size: 12pt;
+            font-weight: 500;
+
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              background: $white-terciary;
+              transition: all 0.5s ease-in-out;
+            }
+
+            &:focus {
+              outline: $blue solid 1px;
+              outline-offset: 3px;
+            }
+          }
+
+          button {
+            margin-top: 0;
+          }
+        }
+        button {
+          height: 50px;
+          max-height: 50px;
+
+          background: $blue;
+          border-radius: 8px;
+          border: 1px solid transparent;
+
+          margin-top: 2px;
+          color: $white-primary;
+          cursor: pointer;
+
+          font-size: 12pt;
+          font-weight: 500;
+
+          transition: all 0.5s ease-in-out;
+
+          &:hover {
+            background: $blue-hover;
+
+            transition: all 0.5s ease-in-out;
+          }
+
+          &:focus {
+            outline: $blue solid 1px;
+            outline-offset: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 360px) and (max-width: 394px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 787px;
+    max-height: 787px;
+
+    .container {
+      margin: 25px;
+
+      section {
+        padding: 40px 15px 15px 15px;
+        form {
+          grid-template-columns: auto;
+
+          h1 {
+            font-size: 22pt;
+
+            &.compressed {
+              width: 250px;
+            }
+          }
+
+          input {
+            width: 311px;
+            height: 50px;
+            max-height: 50px;
+
+            font-size: 12pt;
+          }
+
+          i {
+            height: 52px;
+          }
+
+          .component-buttons {
+            a {
+              height: 58px;
+              max-height: 58px;
+
+              font-size: 14pt;
+            }
+          }
+
+          button {
+            height: 60px;
+            max-height: 60px;
+
+            font-size: 14pt;
+          }
+        }
+      }
+    }
+  }
+}

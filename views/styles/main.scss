@@ -1,0 +1,1533 @@
+//LIght Mode
+$white: #ffffff;
+$white-smoke: #f2f2f2;
+$white-gainsboro: #dddddd;
+
+//Dark Mode
+$black: #141414;
+$nero: #262626;
+$nigth-rider: #2C2C2C;
+
+$gandola: #323232;
+$eclipse: #3B3B3B;
+$charcoal: #4F4F4F;
+
+//Blue Mode
+$free-spech-blue: #5071CE;
+$mariner: #4760A5;
+
+$coral-red: #ff4646;
+$well-read: #CA3F3F;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+@mixin resetAll {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  @include resetAll();
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto auto;
+
+  width: 100vw;
+  max-width: 100vw;
+
+  justify-content: center;
+
+  background: $nigth-rider;
+
+  font-family: "Poppins", sans-serif;
+  color: $white-gainsboro;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $free-spech-blue;
+    border-radius: 15px;
+
+    transition: background 0.5s ease-in-out;
+
+    &:hover {
+      background: $mariner;
+    }
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+
+    width: 99vw;
+    margin: 5px;
+
+    background: $nero;
+    border-radius: 12px;
+
+    border: 1px solid $black;
+
+
+    .logotype {
+      position: relative;
+
+      background: $free-spech-blue;
+      border-radius: 12px;
+
+      width: 40px;
+      max-width: 40px;
+
+      height: 40px;
+      max-height: 40px;
+
+      margin: 5px 10px;
+      overflow: hidden;
+
+      i.fa-copyright {
+        position: absolute;
+        top: 0;
+
+        font-size: 35pt;
+
+        color: $white;
+        opacity: 0.7;
+      }
+    }
+
+    h2 {
+      display: grid;
+      align-items: center;
+
+      width: 100%;
+      margin-right: 800px;
+      color: $white;
+    }
+
+    .navigation {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px;
+
+      align-items: center;
+
+      margin: 5px 10px;
+
+      &.one {
+        grid-template-columns: auto;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a,
+      i.bxs-home,
+      i.bxs-grid-alt,
+      i.bxs-user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 16pt;
+
+        width: 40px;
+        max-width: 40px;
+
+        height: 40px;
+        max-height: 40px;
+
+        background: $gandola;
+        border-radius: 12px;
+
+        color: $white-gainsboro;
+
+        cursor: pointer;
+        transition: background 0.5s;
+
+        &:hover {
+          background: $free-spech-blue;
+        }
+
+        &:focus {
+          background: $free-spech-blue;
+
+          outline: $free-spech-blue 1px solid;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: none;
+
+    &.open {
+      position: absolute;
+      display: grid;
+      gap: 10px;
+
+      top: 60px;
+      right: 10px;
+
+      padding: 13px 14px;
+
+      background: $nero;
+      border-radius: 12px;
+
+      border: 1px solid #111;
+
+      color: $white-smoke;
+      z-index: 10;
+
+
+      .sub-menu {
+        display: grid;
+        gap: 5px;
+
+        padding: 5px;
+        background: $gandola;
+        border-radius: 12px;
+
+        a {
+          display: grid;
+          grid-template-columns: 25px auto auto;
+          gap: 15px;
+
+          align-items: center;
+
+          padding: 10px;
+          color: $white-gainsboro;
+
+          text-decoration: none;
+          transition: background 0.5s, border-radius 0.5s;
+
+          &:hover {
+            background: $free-spech-blue;
+            border-radius: 12px;
+          }
+
+          &:focus {
+            background: $free-spech-blue;
+            border-radius: 12px;
+
+            color: $white;
+
+            outline: $free-spech-blue 1px solid;
+            outline-offset: 2px;
+
+            &:hover {
+              background: $free-spech-blue;
+
+              color: $white;
+            }
+          }
+
+          i {
+            font-size: 16pt;
+
+            &.fa-angle-right {
+              font-size: 12pt;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .add-school,
+  .edit-school,
+  .add-personal,
+  .edit-personal,
+  .add-teacher,
+  .edit-teacher,
+  .add-student,
+  .edit-student,
+  .add-qualification,
+  .edit-qualification {
+    display: grid;
+    justify-content: center;
+
+    color: $white;
+
+    form {
+      .input-school {
+        grid-template-areas:
+          "school-data staff location";
+
+        grid-template-columns: auto auto 25vw;
+
+        .school-data {
+          display: grid;
+
+          grid-template-areas:
+            "school-name school-name turn"
+            "sector zone period"
+            "organization category phone";
+
+          grid-area: school-data;
+
+          .school-name {
+            grid-area: school-name;
+          }
+
+          .turn {
+            grid-area: turn;
+          }
+
+          .sector {
+            grid-area: sector;
+          }
+
+          .zone {
+            grid-area: zone;
+          }
+
+          .period {
+            grid-area: period;
+          }
+
+          .organization {
+            grid-area: organization;
+          }
+
+          .category {
+            grid-area: category;
+          }
+
+          .phone {
+            grid-area: phone;
+          }
+
+          .school-name,
+          .turn,
+          .sector,
+          .zone,
+          .period,
+          .organization,
+          .category,
+          .phone {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .staff {
+          display: grid;
+
+          grid-template-areas:
+            "director director"
+            "supervisor supervisor"
+            "sector-boss sector-boss";
+
+          grid-area: staff;
+
+          .director {
+            grid-area: director;
+          }
+
+          .supervisor {
+            grid-area: supervisor;
+          }
+
+          .sector-boss {
+            grid-area: sector-boss;
+          }
+
+          .director,
+          .supervisor,
+          .sector-boss {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .location {
+          display: grid;
+
+          grid-template-areas:
+            "address address"
+            "locality locality"
+            "municipality municipality";
+
+          grid-area: location;
+
+          .address {
+            grid-area: address;
+          }
+
+          .locality {
+            grid-area: locality;
+          }
+
+          .municipality {
+            grid-area: municipality;
+          }
+
+          .address,
+          .locality,
+          .municipality {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .school-data,
+        .staff,
+        .location {
+
+          .caution-school-name,
+          .caution-turn,
+          .caution-sector,
+          .caution-zone,
+          .caution-period,
+          .caution-organization,
+          .caution-category,
+          .caution-phone,
+          .caution-director,
+          .caution-supervisor,
+          .caution-sector-boss,
+          .caution-address,
+          .caution-locality,
+          .caution-municipality {
+            p {
+              font-size: 10pt;
+
+              margin-top: 4px;
+              color: $coral-red;
+            }
+          }
+        }
+      }
+
+      .input-personal {
+        grid-template-areas:
+          "personal-data communication"
+          "labor-data labor-data";
+
+        .personal-data {
+          display: grid;
+
+          grid-template-areas:
+            "full-name rfc"
+            "curp gender";
+
+          grid-area: personal-data;
+
+          .full-name {
+            grid-area: full-name;
+          }
+
+          .rfc {
+            grid-area: rfc;
+          }
+
+          .curp {
+            grid-area: curp;
+          }
+
+          .gender {
+            grid-area: gender;
+          }
+
+          .full-name,
+          .rfc,
+          .curp,
+          .gender {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .labor-data {
+          display: grid;
+
+          grid-template-areas:
+            "function school-key teacher-square career-level study-grade "
+            "study-status school-check register-secretary register-zone register-school";
+
+          grid-area: labor-data;
+
+          .function {
+            grid-area: function;
+          }
+
+          .school-key {
+            grid-area: school-key;
+          }
+
+          .teacher-square {
+            grid-area: teacher-square;
+          }
+
+          .career-level {
+            grid-area: career-level;
+          }
+
+          .study-grade {
+            grid-area: study-grade;
+          }
+
+          .study-status {
+            grid-area: study-status;
+          }
+
+          .school-check {
+            grid-area: school-check;
+          }
+
+          .register-secretary {
+            grid-area: register-secretary;
+          }
+
+          .register-zone {
+            grid-area: register-zone;
+          }
+
+          .register-school {
+            grid-area: register-school;
+          }
+
+          .function,
+          .school-key,
+          .teacher-square,
+          .career-level,
+          .study-grade,
+          .study-status,
+          .school-check,
+          .register-secretary,
+          .register-zone,
+          .register-school {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .communication {
+          display: grid;
+
+          grid-template-areas:
+            "email"
+            "cellphone";
+          grid-area: communication;
+
+          .email {
+            grid-area: email;
+          }
+
+          .cellphone {
+            grid-area: cellphone;
+          }
+
+          .email,
+          .cellphone {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+        }
+
+        .personal-data,
+        .labor-data,
+        .communication {
+
+          .caution-full-name,
+          .caution-rfc,
+          .caution-curp,
+          .caution-gender,
+          .caution-email,
+          .caution-cellphone,
+          .caution-function,
+          .caution-school-key,
+          .caution-teacher-square,
+          .caution-career-level,
+          .caution-study-grade,
+          .caution-study-status,
+          .caution-school-check,
+          .caution-register-secretary,
+          .caution-register-zone,
+          .caution-register-school {
+            p {
+              font-size: 10pt;
+
+              margin-top: 4px;
+              color: $coral-red;
+            }
+          }
+        }
+      }
+
+      .input-teacher {
+        grid-template-areas: "classroom";
+
+        .classroom {
+          display: grid;
+          grid-template-areas:
+            "id-personal id-personal"
+            "grade group";
+          grid-area: classroom;
+
+          .id-personal {
+            grid-area: id-personal;
+          }
+
+          .grade {
+            grid-area: grade;
+          }
+
+          .group {
+            grid-area: group;
+          }
+
+          .id-personal,
+          .grade,
+          .group {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+
+          .caution-id-personal,
+          .caution-grade,
+          .caution-group {
+            p {
+              font-size: 10pt;
+
+              margin-top: 4px;
+              color: $coral-red;
+            }
+          }
+        }
+      }
+
+      .input-student {
+        grid-template-areas:
+          "personal-information classroom";
+
+        grid-template-columns: auto 20vw;
+
+        .personal-information {
+          display: grid;
+
+          grid-template-areas:
+            "full-name full-name"
+            "gender birthday-date";
+          grid-area: personal-information;
+
+          .full-name {
+            grid-area: full-name;
+          }
+
+          .gender {
+            grid-area: gender;
+          }
+
+          .birthday-date {
+            grid-area: birthday-date;
+          }
+
+          .full-name,
+          .gender,
+          .birthday-date {
+            display: grid;
+            grid-template-rows: auto auto 20px;
+          }
+        }
+
+        .classroom {
+          display: grid;
+
+          grid-template-areas:
+            "grade"
+            "group";
+          grid-area: classroom;
+
+          .grade {
+            grid-area: grade;
+          }
+
+          .group {
+            grid-area: group;
+          }
+
+          .grade,
+          .group {
+            display: grid;
+            grid-template-rows: auto auto 20px;
+          }
+        }
+
+        .personal-information,
+        .classroom {
+
+          .caution-full-name,
+          .caution-gender,
+          .caution-birthday-date,
+          .caution-grade,
+          .caution-group {
+            p {
+              font-size: 10pt;
+
+              margin-top: 4px;
+              color: $coral-red;
+            }
+          }
+        }
+      }
+
+      .input-qualification {
+        grid-template-areas:
+          "general-information"
+          "partials";
+
+        .general-information {
+          display: grid;
+
+          grid-template-areas:
+            "student student"
+            "grade group"
+            "id-matter id-matter";
+
+          grid-template-columns: repeat(2, 140px);
+          grid-area: general-information;
+
+          .student {
+            grid-area: student;
+          }
+
+          .grade {
+            grid-area: grade;
+
+            input {
+              width: 105px;
+              max-width: 105px;
+            }
+          }
+
+          .group {
+            grid-area: group;
+
+            input {
+              width: 105px;
+              max-width: 105px;
+            }
+          }
+
+          .id-matter {
+            display: grid;
+            grid-area: id-matter;
+
+            select {
+              width: 290px;
+            }
+
+            grid-template-rows: auto auto 28px;
+          }
+
+          .student,
+          .grade,
+          .group {
+            display: grid;
+
+            grid-template-rows: auto auto 10px;
+          }
+
+
+        }
+
+        .partials {
+          display: grid;
+
+          grid-template-areas:
+            "first-partial second-partial third-partial";
+
+          grid-area: partials;
+
+          .first-partial {
+            grid-area: first-partial;
+          }
+
+          .second-partial {
+            grid-area: second-partial;
+          }
+
+          .third-partial {
+            grid-area: third-partial;
+          }
+
+          .first-partial,
+          .second-partial,
+          .third-partial {
+            display: grid;
+            grid-template-rows: auto auto 28px;
+          }
+
+          input {
+            width: 50px;
+            max-width: 50px;
+          }
+
+        }
+
+        .general-information,
+        .partials {
+
+          .caution-first-partial,
+          .caution-second-partial,
+          .caution-third-partial,
+          .caution-matters {
+            p {
+              font-size: 10pt;
+
+              margin-top: 4px;
+              color: $coral-red;
+            }
+          }
+        }
+      }
+
+      .input-school,
+      .input-personal,
+      .input-teacher,
+      .input-student,
+      .input-qualification {
+        display: grid;
+        gap: 7.5px;
+
+        .school-data,
+        .staff,
+        .location,
+        .personal-data,
+        .labor-data,
+        .communication,
+        .classroom,
+        .personal-information,
+        .general-information,
+        .partials,
+        .qualification {
+          position: relative;
+
+          column-gap: 10px;
+          padding: 45px 10px 10px 10px;
+
+          background: $nero;
+          border-radius: 12px;
+
+          border: 1px solid $black;
+
+          h3 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+          }
+
+          label {
+            font-size: 11pt;
+            font-weight: 500;
+
+            margin-bottom: 6px;
+          }
+
+          input {
+
+            &[type="text"],
+            &[type="date"] {
+              height: 35px;
+              max-height: 35px;
+              padding: 0 16px;
+              background: $gandola;
+              border-radius: 12px;
+
+              border: 1px solid $gandola;
+
+              color: $white-gainsboro;
+
+              font: 10pt Poppins, sans-serif;
+
+              &:focus {
+                outline: $free-spech-blue solid 1px;
+                outline-offset: 3px;
+              }
+            }
+          }
+
+          select {
+            height: 35px;
+            max-height: 35px;
+
+            padding: 0 16px;
+
+            background: $gandola;
+            border-radius: 12px;
+            border: 1px solid $gandola;
+
+            color: $white-gainsboro;
+            font: 10pt Poppins, sans-serif;
+
+            &:focus {
+              outline: $free-spech-blue solid 1px;
+              outline-offset: 3px;
+            }
+          }
+        }
+      }
+
+      a {
+        margin-right: 3px;
+        padding: 14px 18px;
+
+        border-radius: 12px;
+
+        background: $free-spech-blue;
+        border-radius: 12px;
+
+        color: $white-gainsboro;
+        text-decoration: none;
+
+        font: 11pt Poppins, sans-serif;
+
+        transition: background 0.5s;
+
+        &:hover {
+          background: $mariner
+        }
+
+        &:focus {
+          outline: $free-spech-blue solid 1px;
+          outline-offset: 3px;
+        }
+
+      }
+
+      button {
+        height: 50px;
+        max-height: 50px;
+
+        background: $free-spech-blue;
+        border-radius: 12px;
+        border: 1px solid transparent;
+
+        margin-top: 12px;
+        padding: 0 32px;
+
+        color: $white;
+        cursor: pointer;
+
+        font: 11pt Poppins, sans-serif;
+
+        transition: background 0.5s ease-in-out;
+
+        &:hover {
+          background: $mariner;
+        }
+
+        &:focus {
+          outline: $free-spech-blue solid 1px;
+          outline-offset: 3px;
+        }
+      }
+    }
+
+  }
+
+  .show-report-card {
+    .data {
+      display: grid;
+
+      margin-top: 10px;
+      padding: 0 20px;
+
+      font-size: 12pt;
+
+      .school,
+      .student,
+      .teacher {
+        display: grid;
+        row-gap: 5px;
+
+        span {
+          padding: 0 16px;
+          background: $nero;
+          border-radius: 6px;
+          border: 1px solid $black;
+        }
+      }
+
+      .school {
+        display: grid;
+        column-gap: 5px;
+        grid-template-areas:
+          "name name"
+          "director period";
+
+        .name {
+          grid-area: name;
+        }
+
+        .director {
+          grid-area: director;
+        }
+
+        .period {
+          grid-area: period;
+        }
+
+        .name,
+        .director,
+        .period {
+          display: grid;
+        }
+      }
+
+      .teacher {
+        .personal {
+          display: grid;
+        }
+      }
+
+      .student {
+        display: grid;
+        column-gap: 5px;
+        grid-template-areas:
+          "full-name grade group";
+
+        .full-name {
+          grid-area: full-name;
+        }
+
+        .grade {
+          grid-area: grade;
+        }
+
+        .group {
+          grid-area: group;
+        }
+
+        .full-name,
+        .grade,
+        .group {
+          display: grid;
+        }
+      }
+    }
+
+    .buttons {
+      position: relative;
+      display: grid;
+
+      grid-template-columns: auto auto;
+
+      a {
+        position: absolute;
+        top: 10px;
+
+        display: grid;
+        place-items: center;
+
+        height: 40px;
+        max-height: 40px;
+
+        background: $free-spech-blue;
+        border-radius: 12px;
+
+        color: $white-gainsboro;
+        text-decoration: none;
+
+        transition: background 0.5s ease-in-out;
+
+        &.return {
+          left: 0;
+
+          width: 40px;
+          max-width: 40px;
+        }
+
+        &.print {
+          left: calc(40px + 16px);
+          width: 40px;
+          max-width: 40px;
+        }
+
+        &:hover {
+          background: $mariner
+        }
+
+        &:focus {
+          outline: $free-spech-blue solid 1px;
+          outline-offset: 3px;
+        }
+
+        i {
+          font-size: 12pt;
+        }
+      }
+    }
+  }
+
+  .show-school,
+  .show-personal,
+  .show-student {
+    width: 1000px;
+    max-width: 1000px;
+  }
+
+
+
+  .show-modules,
+  .show-statistics {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+
+    justify-content: flex-start;
+
+    margin: 0;
+    padding: 10px;
+
+    height: auto;
+    max-height: 450px;
+
+
+
+    .navigation {
+      display: grid;
+
+      grid-template-columns: auto auto 1000px;
+      gap: 8px;
+
+      margin-bottom: 10px;
+
+      a {
+        display: grid;
+        place-items: center;
+
+        height: 40px;
+        max-height: 40px;
+
+        background: $free-spech-blue;
+        border-radius: 12px;
+
+        color: $white-gainsboro;
+        text-decoration: none;
+
+        transition: background 0.5s ease-in-out;
+
+        &.two-columns {
+          display: grid;
+          width: auto;
+          grid-template-columns: auto auto;
+          padding: 0 16px;
+        }
+
+        &.one-columns {
+          width: 40px;
+          max-width: 40px;
+        }
+
+        &:hover {
+          background: $mariner
+        }
+
+        &:focus {
+          outline: $free-spech-blue solid 1px;
+          outline-offset: 3px;
+        }
+
+        i {
+          font-size: 16pt;
+          margin-right: 10px;
+
+          &.fa-arrow-left {
+            font-size: 12pt;
+            margin-left: 7px;
+          }
+
+        }
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 200px 400px;
+        gap: 8px;
+
+        select {
+          width: auto;
+          max-width: 200px;
+
+          height: 40px;
+          max-height: 40px;
+
+          padding: 0 16px;
+
+          background: $gandola;
+          border-radius: 12px;
+          border: 1px solid $gandola;
+
+          color: $white-gainsboro;
+          font: 10pt Poppins, sans-serif;
+
+          &:focus {
+            outline: $free-spech-blue solid 1px;
+            outline-offset: 3px;
+          }
+        }
+
+        button {
+          display: grid;
+          place-items: center;
+
+          width: 40px;
+          max-width: 40px;
+
+          height: 40px;
+          max-height: 40px;
+
+          background: $free-spech-blue;
+          border-radius: 12px;
+          border: transparent;
+
+          text-decoration: none;
+
+          transition: background 0.5s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            background: $mariner
+          }
+
+          &:focus {
+            outline: $free-spech-blue solid 1px;
+            outline-offset: 3px;
+          }
+
+          i {
+            font-size: 14pt;
+            color: $white-gainsboro;
+          }
+        }
+      }
+    }
+
+    .module-school,
+    .module-personal,
+    .module-teacher,
+    .module-student {
+      padding: 10px;
+
+      background: $nero;
+      border-radius: 12px;
+
+      span {
+        font-size: 13pt;
+      }
+
+      .information {
+        display: flex;
+        gap: 8px;
+
+        align-items: center;
+        margin-top: 8px;
+
+        padding: 10px;
+        background: $free-spech-blue;
+        border-radius: 12px;
+
+        &:first-of-type {
+          margin-bottom: 8px;
+        }
+
+        p {
+          padding: 4px 16px;
+          background: $nigth-rider;
+          border-radius: 12px;
+
+        }
+      }
+    }
+  }
+
+  .show-school,
+  .show-personal,
+  .show-teacher,
+  .show-student,
+  .show-report-card {
+
+    position: relative;
+    display: grid;
+
+    margin: 0 auto;
+
+    color: $white;
+
+    form {
+      input {
+        &[type="search"] {
+          width: 350px;
+          max-width: 350px;
+
+          height: 40px;
+          max-height: 40px;
+
+          padding: 0 16px;
+
+          background: $nero;
+          border-radius: 12px;
+
+          border: 1px solid $black;
+          color: $white-gainsboro;
+
+          font: 11pt Poppins, sans-serif;
+
+          &:focus {
+            outline: $free-spech-blue solid 1px;
+            outline-offset: 3px;
+          }
+        }
+      }
+
+      a {
+        position: absolute;
+
+        display: grid;
+        place-items: center;
+
+        height: 40px;
+        max-height: 40px;
+
+        background: $free-spech-blue;
+        border-radius: 12px;
+
+        color: $white-gainsboro;
+        text-decoration: none;
+
+        transition: background 0.5s ease-in-out;
+
+        &.add {
+          top: 0;
+          left: calc(350px + 16px);
+
+          width: 40px;
+          max-width: 40px;
+
+          i {
+            font-size: 12pt;
+          }
+        }
+
+        &.assign {
+          display: grid;
+
+          grid-template-columns: auto auto;
+
+          top: 0;
+          left: calc(350px + 16px + 40px + 16px);
+          padding: 0 16px;
+        }
+
+        &.report {
+          display: grid;
+
+          grid-template-columns: auto auto;
+
+          top: 0;
+          left: calc(350px + 16px + 40px + 16px + 176px + 16px);
+          padding: 0 16px;
+        }
+
+        &:hover {
+          background: $mariner
+        }
+
+        &:focus {
+          outline: $free-spech-blue solid 1px;
+          outline-offset: 3px;
+        }
+
+        i {
+          font-size: 16pt;
+
+          &.bxs-chalkboard,
+          &.bxs-user,
+          &.bxs-calculator,
+          &.bxs-book {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    table {
+      display: grid;
+      overflow: auto;
+
+      padding: 12px;
+      margin-top: 8px;
+
+      height: auto;
+      max-height: 450px;
+
+      border-spacing: 0 8px;
+      font-size: 11pt;
+
+      background: $nero;
+      border-radius: 12px;
+
+      border: 1px solid $black;
+
+      text-align: center;
+
+      &.min-width {
+        tr {
+
+          th,
+          td {
+            min-width: 100px;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $free-spech-blue;
+        border-radius: 15px;
+
+        transition: background 0.5s ease-in-out;
+
+        &:hover {
+          background: $mariner;
+        }
+      }
+
+      tr {
+
+        &:nth-last-child(odd) {
+          background: $eclipse;
+        }
+
+        &:nth-last-child(even) {
+          background: $nigth-rider;
+        }
+
+        th,
+        td {
+          padding: 5px;
+          min-width: 200px;
+
+
+          &:last-of-type {
+            min-width: 100px;
+          }
+
+
+        }
+
+        th {
+          background: $nero;
+        }
+
+        td {
+
+          &:nth-last-child(odd),
+          &:nth-last-child(even) {
+            &:first-of-type {
+              border-radius: 12px 0 0 12px;
+            }
+
+            &:last-of-type {
+              border-radius: 0 12px 12px 0;
+
+              .actions {
+                display: grid;
+                column-gap: 10px;
+
+                &.one {
+                  grid-template-columns: auto;
+                }
+
+                &.two {
+                  grid-template-columns: repeat(2, auto);
+                }
+
+                &.three {
+                  grid-template-columns: repeat(3, auto);
+                }
+
+
+                &.four {
+                  grid-template-columns: repeat(4, auto);
+                }
+
+                i {
+                  font-size: 15pt;
+                }
+
+                form {
+                  button {
+
+                    padding: 8px;
+
+                    border-radius: 12px;
+                    border: transparent;
+
+                    color: $white-gainsboro;
+
+                    cursor: pointer;
+
+                    transition: background 0.5s ease-in-out;
+
+
+
+                    &[name="edit-personal"],
+                    &[name="assign-teacher"],
+                    &[name="edit-teacher"],
+                    &[name="edit-student"],
+                    &[name="add-qualification"],
+                    &[name="edit-qualification"],
+                    &[name="report-card"] {
+                      background: $free-spech-blue;
+
+                      &:hover {
+                        background: $mariner;
+                      }
+
+                      &:focus {
+                        outline: $free-spech-blue solid 1px;
+                        outline-offset: 3px;
+                      }
+                    }
+
+                    &[name="delete-personal"],
+                    &[name="delete-teacher"],
+                    &[name="delete-student"],
+                    &[name="delete-qualification"] {
+                      background: $coral-red;
+
+                      &:hover {
+                        background: $well-read;
+                      }
+
+                      &:focus {
+                        outline: $coral-red solid 1px;
+                        outline-offset: 3px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
